@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Hash Generator</h1>
+        <form method="POST">
+            <label for="input_string">Enter a string to hash:</label>
+            <input type="text" id="input_string" name="input_string" value="{{ input_string }}" required>
+            <button type="submit">Generate Hashes</button>
+        </form>
+
+        {% if md5 and sha1 %}
+        <div class="results">
+            <h2>Results:</h2>
+            <p><strong>MD5 Hash:</strong> {{ md5 }}</p>
+            <p><strong>SHA-1 Hash:</strong> {{ sha1 }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
